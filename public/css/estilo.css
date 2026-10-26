@@ -1,7 +1,11 @@
+html {
+    height: 100%;
+}
 body {
     background-color: #f6e9d9;
     margin: 0;
     padding: 0;
+    min-height: 100%;
 }
 header {
     background-color: rgba(113, 122, 75, 1);
@@ -19,37 +23,71 @@ header img {
     object-fit: contain;
     margin-top: 50px;
 }
-form{
-    background-color: rgba(108, 199, 74, 1);
-    border: 1px solid #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
-    opacity: 0.7;
-    padding: 20px;
-    margin-top: 20px;
+button:hover {
+    background-color: rgba(84, 164, 73, 1);
+    color: #fff;
 }
-#email, 
-#password {
-    display: block;
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 50%;
-}
-button[type="submit"] {
+button{
     background-color: rgba(177, 177, 177, 1);
     border: none;
     margin-top: 10px;
     padding: 10px;
     border-radius: 180px;
-    width: 100px;
+    width: 130px;
     font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-button[type="submit"]:hover {
-    background-color: rgba(84, 164, 73, 1);
-    color: #fff;
+.grid-contenedor {
+    display: grid;
+    gap: 5px;
+    grid-template:
+    "header" 100px
+    "nav" 50px
+    "main" auto
+    "aside" 100px
+    "footer" 100px
+    ;
+}
+.nav {
+    grid-area: nav;
+}
+ul {
+    list-style-type: none;
+}
+.footer {
+    grid-area: footer;
+    justify-self: center;
+}
+main {
+    grid-area: main;
+    justify-self: center;
+}
+.agregar-nuevo {
+    background-color: #8688F5;
+    border: none;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 130px;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+th, td {
+    justify-self: center;
+    text-align: left;
+    padding: 8px;
+    border: 3px dotted #C9AB86;
+}
+input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+    margin-bottom: 10px;
+}
+input::placeholder {
+    color: #c9ab86;
+    font-family: georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
 }
