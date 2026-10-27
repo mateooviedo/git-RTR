@@ -37,8 +37,4 @@ const buscarCliente = async (req, res) => {
     }
 };
 
-const mostrarClientes = async (req, res) => {
-    const
-}
-
 module.exports = { agregarCliente, buscarCliente };
