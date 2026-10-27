@@ -37,4 +37,21 @@ const buscarCliente = async (req, res) => {
     }
 };
 
-module.exports = { agregarCliente, buscarCliente };
+const obtenerClientes = async (req, res) => {
+
+    try {
+        const [rows] = await db.query('SELECT nombre, telefono, direccion FROM viandas.Clientes');
+
+        if (!rows || rows.length === 0) {
+            return res.status(404).json({ mensaje: 'no se encontraron clientes' });
+        }
+
+        return res.status(200).json(rows);
+
+    } catch(error) {
+        console.error(error);
+        return res.status(500).json({ mensaje: 'error interno del servidor' });
+    }
+}
+
+module.exports = { agregarCliente, buscarCliente, obtenerClientes};
