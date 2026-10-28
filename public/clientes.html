@@ -12,7 +12,7 @@
     </header>
     <nav class="nav">
         <ul>
-            <li><button onclick="window.location.href='registro.html'">Registro</button></li>
+            <li><button onclick="window.location.href='login.html'">Registro</button></li>
             <li><button onclick="window.location.href='dashboard.html'">Dashboard</button></li>
             <li><button onclick="window.location.href='clientes.html'">Clientes</button></li>
             <li><button onclick="window.location.href='pedidos.html'">Pedidos</button></li>
@@ -27,17 +27,24 @@
         </div>
         <button class="agregar-nuevo" onclick="window.location.href='clientesnuevo.html'">agregar cliente</button>
         <table>
-            <tr>
-                <th>cliente</th>
-                <th>telefono</th>
-                <th>Dirección</th>
-                <th>Accion</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>cliente</th>
+                    <th>telefono</th>
+                    <th>Dirección</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody class="cuerpoTabla">
+
+            </tbody>
         </table>
     </main>
     <aside class="aside"></aside>
     <footer class="footer">
         <p>© 2026 viandas fit. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="/public/js/clientes.js"></script>
 </body>
 </html>
