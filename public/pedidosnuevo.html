@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>viandas fit</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="grid-contenedor">
+    <header>
+        <img src="img/b4132839ee2e902723bfa28e3341b80516526e25.png" alt="Logo de la empresa">
+    </header>
+    <nav class="nav">
+        <ul>
+            <li><button onclick="window.location.href='registro.html'">Registro</button></li>
+            <li><button onclick="window.location.href='dashboard.html'">Dashboard</button></li>
+            <li><button onclick="window.location.href='clientes.html'">Clientes</button></li>
+            <li><button onclick="window.location.href='pedidos.html'">Pedidos</button></li>
+            <li><button onclick="window.location.href='menu.html'">menu</button></li>
+            <li><button onclick="window.location.href='historial.html'">historial</button></li>
+        </ul>
+    </nav>
+    <main class="main">
+        <div class="buscacliente">
+            <label for="search"></label>
+            <input type="text" id="search" name="search" placeholder="Nombre del cliente...">
+        </div>
+        <table>
+            <tr>
+                <th>Menu</th>
+                <th>Cantidad</th>
+            </tr>
+        </table>
+        <button class="agregar-nuevo" onclick="">Guardar</button>
+        <button class="cancelar" onclick="window.location.href='clientes.html'">Cancelar</button>
