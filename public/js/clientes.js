@@ -1,3 +1,5 @@
+let listaClientesGlobal = [];
+
 async function cargarClientes() {
     try {
         const respuesta = await fetch('http://localhost:8080/api/clientes/obtenerClientes');
@@ -7,6 +9,15 @@ async function cargarClientes() {
             throw new Error(clientes.mensaje || 'Error al cargar los clientes');
         }
 
+        listaClientesGlobal = clientes;
+        mostrarClientes(listaClientesGlobal);
+
+    } catch (error) {
+        console.error('Hubo un problema al cargar los clientes:', error);
+    }
+}
+
+function mostrarClientes(clientesAMostrar) {
         const cuerpoTabla = document.getElementById('cuerpoTabla');
 
         if (!cuerpoTabla) {
@@ -15,7 +26,17 @@ async function cargarClientes() {
 
         cuerpoTabla.innerHTML = '';
 
-        clientes.forEach((cliente) => {
+        if (clientesAMostrar.length === 0) {
+            const fila = document.createElement('tr');
+            const td = document.createElement('td');
+            td.colSpan = 4;
+            td.textContent = 'No se encontraron clientes.';
+            td.style.textAlign = 'center';
+            fila.appendChild(fila);
+            return;
+        }
+
+        clientesAMostrar.forEach((cliente) => {
             const fila = document.createElement('tr');
 
             const tdNombre = document.createElement('td');
@@ -50,9 +71,6 @@ async function cargarClientes() {
 
             cuerpoTabla.appendChild(fila);
         });
-    } catch (error) {
-        console.error('Hubo un problema al cargar los clientes:', error);
-    }
 }
 
 function editarCliente(cliente) {
@@ -92,4 +110,30 @@ async function eliminarCliente(cliente) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', cargarClientes);
+// inicializacion y eventos
+document.addEventListener('DOMContentLoaded', () => {
+    cargarClientes();
+
+    //capturamos el imput de busqueda en tiempo real
+    const inputSearch = document.getElementById('search');
+
+    if (inputSearch) {
+        inputSearch.addEventListener('input', (e) => {
+            const textoBusqueda = e.target.value.toLowerCase().trim();
+
+            //filtramos la lista global buscando coincidencias en nombre, telefono o direccion
+            const clientesFiltrados = listaClientesGlobal.filter(cliente => {
+                const nombre = cliente.nombre ? cliente.nombre.toLowerCase() : '';
+                const telefono = cliente.telefono ? cliente.telefono.toLowerCase() : '';
+                const direccion = cliente.direccion ? cliente.direccion.toLowerCase() : '';
+
+                return nombre.includes(textoBusqueda) ||
+                    telefono.includes(textoBusqueda) ||
+                    direccion.includes(textoBusqueda);
+            });
+
+            //actualizamos la tabla de forma instantanea con los filtros
+            mostrarClientes(clientesFiltrados);
+        });
+    }
+});
