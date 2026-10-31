@@ -59,9 +59,27 @@ function editarCliente(cliente) {
     console.log('editar cliente:', cliente.nombre);
 }
 
-function eliminarCliente(cliente) {
+async function eliminarCliente(cliente) {
     if (confirm(`¿Estás seguro de eliminar a ${cliente.nombre}?`)) {
-        console.log(cliente.nombre, 'eliminado');
+        try{
+            const respuesta = await fetch(`http://localhost:8080/api/clientes/eliminarCliente/${cliente.id}`, {
+                method: 'DELETE'
+            });
+
+            const resultado = await respuesta.json();
+
+            if(!respuesta.ok) {
+                throw new Error(resultado.mensaje || 'No se pudo eliminar el cliente');
+            }
+
+            console.log(resultado.mensaje);
+
+            cargarClientes();
+
+        } catch (error) {
+            console.error('Error al eliminar:', error);
+            alert('Hubo un error al intentar eliminar el cliente.');
+        }
     }
 }
 

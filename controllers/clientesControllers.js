@@ -40,7 +40,7 @@ const buscarCliente = async (req, res) => {
 const obtenerClientes = async (req, res) => {
 
     try {
-        const [rows] = await db.query('SELECT nombre, telefono, direccion FROM viandas.Clientes');
+        const [rows] = await db.query('SELECT id, nombre, telefono, direccion FROM viandas.Clientes');
 
         if (!rows || rows.length === 0) {
             return res.status(404).json({ mensaje: 'no se encontraron clientes' });
@@ -54,4 +54,21 @@ const obtenerClientes = async (req, res) => {
     }
 }
 
-module.exports = { agregarCliente, buscarCliente, obtenerClientes};
+const eliminarCliente = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const [resultado] = await db.query('DELETE FROM viandas.Clientes WHERE id = ?', [id]);
+
+        if (resultado.affectedRows === 0) {
+            return res.status(404).json({ mensaje: 'Cliente no encontrado' });
+        }
+
+        return res.status(200).json({ mensaje: 'Cliente eliminado correctamente' });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ mensaje: 'Error interno del servidor' });
+    }
+}
+
+module.exports = { agregarCliente, buscarCliente, obtenerClientes, eliminarCliente};
