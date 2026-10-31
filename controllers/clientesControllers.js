@@ -71,4 +71,26 @@ const eliminarCliente = async (req, res) => {
     }
 }
 
-module.exports = { agregarCliente, buscarCliente, obtenerClientes, eliminarCliente};
+const actualizarCliente = async (req, res) => {
+    const { id } = req.params;
+    const { nombre, telefono, direccion } = req.body;
+
+    try {
+        const [resultado] = await db.query('UPDATE viandas.Clientes SET nombre = ?, telefono = ?, direccion = ? WHERE id = ?', [nombre, telefono, direccion, id]);
+
+        if (resultado.affectedRows === 0) {
+            const [clientes] = await db.query('SELECT id FROM viandas.Clientes WHERE id = ?', [id]);
+
+            if (clientes.length === 0) {
+                return res.status(404).json({ mensaje: 'Cliente no encontrado' });
+            }
+        }
+
+        return res.status(200).json({ mensaje: 'Cliente actualizado exitosamente' });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ mensaje:'error interno del servidor' });
+    }
+}
+
+module.exports = { agregarCliente, buscarCliente, obtenerClientes, eliminarCliente, actualizarCliente};

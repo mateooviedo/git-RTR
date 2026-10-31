@@ -56,7 +56,16 @@ async function cargarClientes() {
 }
 
 function editarCliente(cliente) {
-    console.log('editar cliente:', cliente.nombre);
+    //codificamos los datos para enviarlos de foma segura por la URL
+    const params = new URLSearchParams({
+        id: cliente.id,
+        nombre: cliente.nombre,
+        telefono: cliente.telefono,
+        direccion: cliente.direccion || ''
+    });
+
+    //redirigimos a la misma vista de agregar, pero pasand los datos
+    window.location.href = `clientesnuevo.html?${params.toString()}`;
 }
 
 async function eliminarCliente(cliente) {
