@@ -27,17 +27,23 @@
         </div>
         <button class="agregar-nuevo" onclick="window.location.href='pedidosnuevo.html'">agregar pedido</button>
         <table>
-            <tr>
-                <th>cliente</th>
-                <th>Plato</th>
-                <th>Cantidad</th>
-                <th>Total</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Plato</th>
+                    <th>Cantidad</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTablaPedidos">
+            </tbody>
         </table>
     </main>
     <aside class="aside"></aside>
     <footer class="footer">
         <p>© 2026 viandas fit. Todos los derechos reservados.</p>
     </footer>
+    <script src="js/pedidos.js"></script>
 </body>
 </html>

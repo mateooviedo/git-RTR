@@ -21,15 +21,47 @@
         </ul>
     </nav>
     <main class="main">
-        <div class="buscacliente">
-            <label for="search"></label>
-            <input type="text" id="search" name="search" placeholder="Nombre del cliente...">
+
+        <!-- Sección de selección y búsqueda de cliente -->
+        <section>
+            <h3>Seleccionar Cliente</h3>
+            <div class="buscacliente">
+                <input type="text" id="searchCliente" placeholder="Filtrar cliente por nombre o teléfono...">
+            </div>
+            <div id="contenedorClientes" style="max-height: 150px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+                <!-- Se cargan los clientes con radio buttons dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Sección de selección de menú y cantidades -->
+        <section>
+            <h3>Seleccionar Platos y Cantidades</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Seleccionar</th>
+                        <th>Plato</th>
+                        <th>Precio Unitario</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTablaMenuPedidos">
+                    <!-- Se cargan los platos del menú con checkbox y inputs de cantidad -->
+                </tbody>
+            </table>
+        </section>
+
+        <div style="margin-top: 15px; font-size: 1.2em; font-weight: bold;">
+            Total General: $<span id="totalGeneralPedido">0.00</span>
         </div>
-        <table>
-            <tr>
-                <th>Menu</th>
-                <th>Cantidad</th>
-            </tr>
-        </table>
-        <button class="agregar-nuevo" onclick="">Guardar</button>
-        <button class="cancelar" onclick="window.location.href='clientes.html'">Cancelar</button>
+
+        <button class="agregar-nuevo" id="btnGuardarPedido" style="margin-top: 10px;">Guardar Pedido</button>
+        <button class="cancelar" onclick="window.location.href='pedidos.html'">Cancelar</button>
+    </main>
+    <aside class="aside"></aside>
+    <footer class="footer">
+        <p>© 2026 viandas fit. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/pedidosNuevo.js"></script>
+</body>
