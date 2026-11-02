@@ -27,7 +27,8 @@
         <input type="text" id="descripcionplato" name="descripcionplato" placeholder="Descripcion del plato...">
         <label for="search"></label>
         <input type="text" id="precioplato" name="precioplato" placeholder="Precio">
-        <button class="ingresarimg" onclick="">Ingresar Imagen</button>
+        <label for="imagen">Ingresar Imagen:</label>
+        <input type="file" id="imagen" name="imagen" accept="imagen/*" required>
         <button class="agregar-nuevo" onclick="">Guardar</button>
         <button class="cancelar" onclick="window.location.href='menu.html'">Cancelar</button>
     </main>
@@ -35,5 +36,7 @@
     <footer class="footer">
         <p>© 2026 viandas fit. Todos los derechos reservados.</p>
     </footer>
+    
+    <script src="js/menuNuevo.js"></script>
 </body>
 </html>
