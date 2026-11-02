@@ -36,6 +36,9 @@ button{
     width: 130px;
     font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 .grid-contenedor {
     display: grid;
@@ -61,6 +64,9 @@ ul {
 main {
     grid-area: main;
     justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 .agregar-nuevo {
     background-color: #8688F5;
@@ -71,6 +77,20 @@ main {
     width: 130px;
     font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.cancelar {
+    background-color: #8688F5;
+    border: none;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 130px;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.cancelar:hover {
+    background-color: #AC1B1B;
+    color: #fff;
 }
 
 th, td {
@@ -86,8 +106,27 @@ input[type="text"] {
     width: 200px;
     margin-bottom: 10px;
 }
+.filtros-fecha {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 input::placeholder {
     color: #c9ab86;
     font-family: georgia, 'Times New Roman', Times, serif;
     font-size: 16px;
+}
+.ingresarimg {
+    background-color: #8688F5;
+    border: none;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 130px;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.ingresarimg:hover {
+    background-color: #9c9c9c;
+    color: #fff;
 }
