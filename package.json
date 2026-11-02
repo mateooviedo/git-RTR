@@ -3,8 +3,29 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "multer": "^2.5.0",
     "mysql2": "^3.24.4",
     "react-router-dom": "^7.18.4",
     "router": "^2.2.0"
-  }
+  },
+  "name": "git-rtr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateooviedo/git-RTR.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mateooviedo/git-RTR/issues"
+  },
+  "homepage": "https://github.com/mateooviedo/git-RTR#readme"
 }
